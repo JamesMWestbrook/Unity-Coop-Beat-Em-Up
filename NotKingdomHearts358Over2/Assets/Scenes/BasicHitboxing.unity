@@ -495,7 +495,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213930675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.09, y: 0, z: 5.91}
+  m_LocalPosition: {x: 2.25, y: 1.22, z: 5.91}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -719,6 +719,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FemaleRanger_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644314720295260138, guid: 0311e72aae60c1e4b8a946a9b17a9c9a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3644314720295089298, guid: 0311e72aae60c1e4b8a946a9b17a9c9a,
         type: 3}
@@ -1813,6 +1818,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FemaleMage_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554974687092412242, guid: ed7e934d91a59064fb23b2b0fc8d6fbf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8554974687092644722, guid: ed7e934d91a59064fb23b2b0fc8d6fbf,
         type: 3}

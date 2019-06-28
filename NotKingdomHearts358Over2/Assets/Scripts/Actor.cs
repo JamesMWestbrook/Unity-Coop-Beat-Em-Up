@@ -7,6 +7,7 @@ public class Actor : NetworkBehaviour
 {
     public bool IsPlayer = false;
 
+    public Transform camera;
     public bool IsAttacking = false;
     private Animator animator;
     [SerializeField] private List<AnimationClip> attacks;
@@ -24,13 +25,11 @@ public class Actor : NetworkBehaviour
         {
             HP = transform.Find("hp").GetComponent<Hp>();
         }
-        else
-        {
-            
-        }
+        
         HP.HP = HP.MaxHP;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        camera = Camera.main.transform;
     }
 
     // Update is called once per frame
@@ -69,32 +68,23 @@ public class Actor : NetworkBehaviour
 
             if (!IsAttacking)
             {
-                //reading the input:
-                float horizontalAxis = Input.GetAxisRaw("Horizontal");
-                float verticalAxis = Input.GetAxisRaw("Vertical");
+                Vector3 pos = transform.position;
 
-                //assuming we only using the single camera:
-                var camera = Camera.main;
+                float x = Input.GetAxis("Horizontal");
+                float y = Input.GetAxis("Vertical");
 
-                //camera forward and right vectors:
-                var forward = camera.transform.forward;
-                var right = camera.transform.right;
+                Quaternion rotation = Quaternion.Euler(0, camera.eulerAngles.y, 0);
 
-                //project forward and right vectors on the horizontal plane (y = 0)
-                forward.y = 0f;
-                right.y = 0f;
-                forward.Normalize();
-                right.Normalize();
+                Vector3 target = new Vector3(x, 0, y);
+                if (target.sqrMagnitude > 1)
+                {
+                    target.Normalize();
+                }
 
-                //this is the direction in the world space we want to move:
-                var desiredMoveDirection = forward * verticalAxis + right * horizontalAxis;
+                pos += rotation * target * MoveSpeed * Time.deltaTime;
 
-                //now we can apply the movement:
-                transform.Translate(desiredMoveDirection * MoveSpeed * Time.deltaTime);
-
-                //apply transformation
-                Vector3 movement = new Vector3(horizontalAxis, 0.0f, verticalAxis);
-                if (movement != Vector3.zero) transform.rotation = Quaternion.LookRotation(movement);
+                transform.position = pos;
+                transform.rotation = Quaternion.LookRotation(target);
             }
             
         }

@@ -17,6 +17,7 @@ public class HitDetection : MonoBehaviour
             {
                 continue;
             }
+            Debug.Log(c.name);
             if (c.transform.root.GetComponent<Actor>())
             {
                 c.transform.root.GetComponent<Actor>().OnHit(transform.root.GetComponent<Actor>());
