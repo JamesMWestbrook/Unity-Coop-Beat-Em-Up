@@ -5,15 +5,6 @@ using UnityEngine;
 public class HitDetection : MonoBehaviour
 {
 #pragma warning disable 0649 //never assinged to and will always have default value null
-    private void Start()
-    {
-    }
-
-    private void Update()
-    {
-        
-        
-    }
 
     [SerializeField] private BoxCollider WeaponCollider;
 

@@ -26,8 +26,9 @@ public class Actor : NetworkBehaviour
         }
         else
         {
-            HP.HP = HP.MaxHP;
+            
         }
+        HP.HP = HP.MaxHP;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }

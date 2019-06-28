@@ -13,8 +13,5 @@ public class Hp
 
     public Image HPBar;
 
-    private void Start()
-    {
-        HP = MaxHP;
-    }
+    
 }
