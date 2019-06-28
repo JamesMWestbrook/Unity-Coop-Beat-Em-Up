@@ -1,0 +1,234 @@
+fileFormatVersion: 2
+guid: c0723b36a6db0184ebdde58d17f4396c
+timeCreated: 1533717389
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Body_Bone_01
+    100002: Body_Bone_02
+    100004: Body_Bone_03
+    100006: Body_Bone_04
+    100008: Bone_Core
+    100010: Dummy_Root
+    100012: Fin_Bone_01
+    100014: Fin_Bone_02
+    100016: Fin_Bone_03
+    100018: Fin_Bone_04
+    100020: Fin_Bone_L
+    100022: Fin_Bone_R
+    100024: FXDummy_Head
+    100026: FXDummy_MainWeapon
+    100028: FXDummy_Sub
+    100030: Gill_Bottom_L_Bone_01
+    100032: Gill_Bottom_L_Bone_02
+    100034: Gill_Bottom_L_Bone_03
+    100036: Gill_Bottom_R_Bone_01
+    100038: Gill_Bottom_R_Bone_02
+    100040: Gill_Bottom_R_Bone_03
+    100042: Gill_Top_L_Bone_01
+    100044: Gill_Top_L_Bone_02
+    100046: Gill_Top_L_Bone_03
+    100048: Gill_Top_R_Bone_01
+    100050: Gill_Top_R_Bone_02
+    100052: Gill_Top_R_Bone_03
+    100054: //RootNode
+    100056: Head_Bone
+    100058: MOC_CannonFish_SKEL
+    100060: Mouth_Bone
+    400000: Body_Bone_01
+    400002: Body_Bone_02
+    400004: Body_Bone_03
+    400006: Body_Bone_04
+    400008: Bone_Core
+    400010: Dummy_Root
+    400012: Fin_Bone_01
+    400014: Fin_Bone_02
+    400016: Fin_Bone_03
+    400018: Fin_Bone_04
+    400020: Fin_Bone_L
+    400022: Fin_Bone_R
+    400024: FXDummy_Head
+    400026: FXDummy_MainWeapon
+    400028: FXDummy_Sub
+    400030: Gill_Bottom_L_Bone_01
+    400032: Gill_Bottom_L_Bone_02
+    400034: Gill_Bottom_L_Bone_03
+    400036: Gill_Bottom_R_Bone_01
+    400038: Gill_Bottom_R_Bone_02
+    400040: Gill_Bottom_R_Bone_03
+    400042: Gill_Top_L_Bone_01
+    400044: Gill_Top_L_Bone_02
+    400046: Gill_Top_L_Bone_03
+    400048: Gill_Top_R_Bone_01
+    400050: Gill_Top_R_Bone_02
+    400052: Gill_Top_R_Bone_03
+    400054: //RootNode
+    400056: Head_Bone
+    400058: MOC_CannonFish_SKEL
+    400060: Mouth_Bone
+    4300000: MOC_CannonFish_SKEL
+    7400000: Take 001
+    7400002: Down_Standup
+    9500000: //RootNode
+    13700000: MOC_CannonFish_SKEL
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Down_Standup
+      takeName: Down_Standup
+      firstFrame: 0
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy_Root
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Body_Bone_02
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Body_Bone_02/Body_Bone_03
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Body_Bone_02/Body_Bone_03/Body_Bone_04
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Body_Bone_02/Fin_Bone_03
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Body_Bone_02/Fin_Bone_04
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Bone_Core
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Fin_Bone_01
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Fin_Bone_02
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Fin_Bone_L
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Fin_Bone_R
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/FXDummy_Sub
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Gill_Bottom_L_Bone_01
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Gill_Bottom_L_Bone_01/Gill_Bottom_L_Bone_02
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Gill_Bottom_L_Bone_01/Gill_Bottom_L_Bone_02/Gill_Bottom_L_Bone_03
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Gill_Bottom_R_Bone_01
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Gill_Bottom_R_Bone_01/Gill_Bottom_R_Bone_02
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Gill_Bottom_R_Bone_01/Gill_Bottom_R_Bone_02/Gill_Bottom_R_Bone_03
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Gill_Top_L_Bone_01
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Gill_Top_L_Bone_01/Gill_Top_L_Bone_02
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Gill_Top_L_Bone_01/Gill_Top_L_Bone_02/Gill_Top_L_Bone_03
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Gill_Top_R_Bone_01
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Gill_Top_R_Bone_01/Gill_Top_R_Bone_02
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Gill_Top_R_Bone_01/Gill_Top_R_Bone_02/Gill_Top_R_Bone_03
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Head_Bone
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Head_Bone/FXDummy_Head
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Head_Bone/FXDummy_MainWeapon
+        weight: 1
+      - path: Dummy_Root/Body_Bone_01/Head_Bone/Mouth_Bone
+        weight: 1
+      - path: MOC_CannonFish_SKEL
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.25
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: Dummy_Root
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
