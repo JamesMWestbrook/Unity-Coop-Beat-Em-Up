@@ -1,8 +1,6 @@
-Getting hit 2
-Attack 2
-Attack finisher 2
-Special Finish Quote 2
+Getting hit 
+Attack 
 
 I gotcha!
 I can do this!
-Here we go!
+Be afraid!

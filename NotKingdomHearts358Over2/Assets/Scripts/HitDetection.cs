@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HitDetection : MonoBehaviour
 {
@@ -11,16 +9,17 @@ public class HitDetection : MonoBehaviour
     public void Hit()
     {
         Collider[] colliders = Physics.OverlapBox(WeaponCollider.bounds.center, WeaponCollider.bounds.extents, WeaponCollider.transform.rotation, LayerMask.GetMask("Hitbox"));
-        foreach (Collider c in colliders)
+
+        for(int i = 0; i < colliders.Length; i++)
         {
-            if(c.transform.root == transform.root)
+            if (colliders[i].transform.root == transform.root)
             {
                 continue;
             }
-            Debug.Log(c.name);
-            if (c.transform.root.GetComponent<Actor>())
+            Debug.Log(colliders[i].name);
+            if (colliders[i].transform.root.GetComponent<Actor>())
             {
-                c.transform.root.GetComponent<Actor>().OnHit(transform.root.GetComponent<Actor>());
+                colliders[i].transform.root.GetComponent<Actor>().OnHit(transform.root.GetComponent<Actor>());
 
             }
         }
