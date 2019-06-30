@@ -1,0 +1,34 @@
+you could do
+Vector3 vec = new Vector3
+{
+    x = ...
+    y = ...
+    z = ...
+};
+
+
+
+transform.position = targetToFollow.position + new Vector3(xOffset, yOffset, zOffset);
+
+transform.position = new Vector3
+        {
+
+            x = targetToFollow.position.x + xOffset,
+            y = targetToFollow.position.y + yOffset,
+            z = targetToFollow.position.z + zOffset
+        };
+
+        transform.rotation = new Quaternion
+        {
+            x = Mathf.Deg2Rad * xRotation,
+            y = Mathf.Deg2Rad * yRotation,
+            z = Mathf.Deg2Rad * zRotation,
+            w = Quaternion.identity.w
+        };
+
+
+transform.rotation = Quaternion.Euler(x, y, z);
+
+
+ok looks like NetworkManager does its stuff in Start
+so you can make another component that will change the port in Awake and it should run fine

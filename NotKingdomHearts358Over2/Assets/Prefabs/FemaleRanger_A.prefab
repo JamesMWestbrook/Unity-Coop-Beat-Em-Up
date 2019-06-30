@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 1243618893}
   - component: {fileID: 3819869488114760847}
   - component: {fileID: 1838991662540132767}
+  - component: {fileID: 9180123824201672231}
   m_Layer: 0
   m_Name: FemaleRanger_A
   m_TagString: Untagged
@@ -283,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serverOnly: 0
-  localPlayerAuthority: 0
+  localPlayerAuthority: 1
   m_AssetId: 0311e72aae60c1e4b8a946a9b17a9c9a
   m_SceneId: 0
 --- !u!114 &1243618893
@@ -334,6 +335,20 @@ CapsuleCollider:
   m_Height: 6.2985516
   m_Direction: 1
   m_Center: {x: 0, y: 2.6492758, z: 0.3341931}
+--- !u!114 &9180123824201672231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3644314720295260138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &3644314720295264542
 GameObject:
   m_ObjectHideFlags: 0

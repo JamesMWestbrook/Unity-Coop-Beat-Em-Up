@@ -35,7 +35,7 @@ public class Actor : NetworkBehaviour
     void Update()
     {
 
-        if (!isLocalPlayer && !IsPlayer)
+        if (!isLocalPlayer)
         {
             return;
         }
@@ -46,13 +46,17 @@ public class Actor : NetworkBehaviour
             IsAttacking = true;
         }
 
-        
 
+        
 
     }
 
     private void FixedUpdate()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             /*
@@ -85,7 +89,7 @@ public class Actor : NetworkBehaviour
                 transform.position = pos;
                 transform.rotation = Quaternion.LookRotation(target);
             }
-            
+
         }
     }
 
