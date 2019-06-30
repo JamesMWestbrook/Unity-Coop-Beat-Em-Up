@@ -32,3 +32,36 @@ transform.rotation = Quaternion.Euler(x, y, z);
 
 ok looks like NetworkManager does its stuff in Start
 so you can make another component that will change the port in Awake and it should run fine
+
+
+
+also, try replacing this
+transform.Translate(desiredMoveDirection * MoveSpeed * Time.deltaTime);
+
+with Rigidbody.MovePosition
+
+
+
+to rotate, you do X and Y rotation of the pivot object
+This just might be
+and for zoom you change the Z pos of the MainCamera
+
+DecayingDevToday at 10:15 PM
+what exactly is that camera pivot object?
+MediocreToday at 10:16 PM
+just an empty GO
+but you would sync its position to the player
+think like a selfie stick
+
+use this to get mouse input
+float mouseX = Input.GetAxis("Mouse X");
+float mouseY = Input.GetAxis("Mouse Y");
+
+you probably also want to clamp the x rotation
+Vector3 euler = cameraPivot.localEulerAngles;
+euler.x = Mathf.Clamp(Mathf.Repeat(cameraPivot.eulerAngles.x + 180, 360), minY, maxY) - 180;
+cameraPivot.localEulerAngles = euler;
+
+
+but i prefer separate, then do a smooth follow using Vector3.SmoothDamp
+this will hopefully also cause less motion sickness if your player does some sick moves like backflips xD

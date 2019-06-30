@@ -5,8 +5,10 @@ using Mirror;
 public class Actor : NetworkBehaviour
 {
     public bool IsPlayer = false;
+    public bool BetaTesting = false;
 
     public Transform camera;
+
     public bool IsAttacking = false;
     [SerializeField] private Animator animator;
     [SerializeField] private NetworkAnimator networkAnimator;
@@ -27,14 +29,14 @@ public class Actor : NetworkBehaviour
         }
         
         HP.HP = HP.MaxHP;
-        camera = Camera.main.transform;
+        //camera = Camera.main.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (!isLocalPlayer)
+        if (!isLocalPlayer && !BetaTesting)
         {
             return;
         }
@@ -53,22 +55,12 @@ public class Actor : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        if (!isLocalPlayer)
+        if (!isLocalPlayer && !BetaTesting)
         {
             return;
         }
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
-            /*
-            float HorInput = Input.GetAxisRaw("Horizontal");
-            float VertInput = Input.GetAxisRaw("Vertical");
-            Vector3 movement = new Vector3(HorInput, 0.0f, VertInput);
-            if(movement != Vector3.zero) transform.rotation = Quaternion.LookRotation(movement);
-
-            transform.position += (Vector3.forward * Time.deltaTime * MoveSpeed) * Input.GetAxis("Vertical");
-            transform.position += (Vector3.right * Time.deltaTime * MoveSpeed) * Input.GetAxis("Horizontal");
-            */
-
             if (!IsAttacking)
             {
                 Vector3 pos = transform.position;
@@ -91,6 +83,7 @@ public class Actor : NetworkBehaviour
             }
 
         }
+
     }
 
     public void OnHit(Actor attacker)
@@ -106,4 +99,5 @@ public class Actor : NetworkBehaviour
     {
         return animator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
     }
+
 }
