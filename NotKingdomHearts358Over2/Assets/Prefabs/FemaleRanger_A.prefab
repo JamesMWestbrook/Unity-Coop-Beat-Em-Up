@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 9180123824201672231}
   - component: {fileID: 3644314720288039820}
   - component: {fileID: 779128529334265901}
+  - component: {fileID: 377131461063738692}
   m_Layer: 0
   m_Name: FemaleRanger_A
   m_TagString: Untagged
@@ -146,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncInterval: 0.1
   IsPlayer: 1
+  BetaTesting: 1
   camera: {fileID: 0}
   IsAttacking: 0
   animator: {fileID: 3644314720288039820}
@@ -284,6 +286,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncInterval: 0.1
   animator: {fileID: 3644314720288039820}
+--- !u!114 &377131461063738692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3644314720295260138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28afbe31023698f44bd813a9599b8d8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncInterval: 0.1
+  PlayerCamera: {fileID: 7909361651411953871, guid: ef6d0de510daba542b79fc6fc1613c2b,
+    type: 3}
 --- !u!1 &3644314720295264542
 GameObject:
   m_ObjectHideFlags: 0

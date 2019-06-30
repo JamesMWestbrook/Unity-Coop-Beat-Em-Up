@@ -29,7 +29,6 @@ public class Actor : NetworkBehaviour
         }
         
         HP.HP = HP.MaxHP;
-        //camera = Camera.main.transform;
     }
 
     // Update is called once per frame

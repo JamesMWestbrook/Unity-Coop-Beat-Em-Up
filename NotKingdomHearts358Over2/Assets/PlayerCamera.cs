@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerCamera : MonoBehaviour
 {
 
-    [SerializeField] private Transform PivotCamera;
-    [SerializeField] private Transform Player;
+    public Transform cameraPivot;
+    public Transform player;
     public float CameraSpeed = 4;
 
     void Start()
@@ -17,15 +17,13 @@ public class PlayerCamera : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        PivotCamera.position = Player.position;
+        cameraPivot.position = player.position;
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
+        cameraPivot.Rotate(-mouseY * Time.deltaTime * CameraSpeed, -mouseX * Time.deltaTime * CameraSpeed, 0);
 
-        PivotCamera.Rotate(-mouseY * Time.deltaTime * CameraSpeed, -mouseX * Time.deltaTime * CameraSpeed, 0);
-
-
-        Vector3 euler = PivotCamera.localEulerAngles;
-        euler.x =Mathf.Clamp(Mathf.Repeat(PivotCamera.eulerAngles.x + 180, 360),0, 360) - 180;
-        PivotCamera.localEulerAngles = euler;
+        Vector3 euler = cameraPivot.localEulerAngles;
+        euler.x =Mathf.Clamp(Mathf.Repeat(cameraPivot.eulerAngles.x + 180, 360),0, 360) - 180;
+        cameraPivot.localEulerAngles = euler;
     }
 }
