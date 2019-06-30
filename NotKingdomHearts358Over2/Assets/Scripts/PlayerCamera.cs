@@ -45,6 +45,11 @@ public class PlayerCamera : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(player == null)
+        {
+            Destroy(cameraPivot.gameObject);
+        }
+
         cameraPivot.position = player.position;
          mouseX = Input.GetAxis("Mouse X");
          mouseY = Input.GetAxis("Mouse Y");
@@ -56,8 +61,8 @@ public class PlayerCamera : MonoBehaviour
         euler.x =Mathf.Clamp(Mathf.Repeat(cameraPivot.eulerAngles.x + 180, 360),0, 360) - 180;
         cameraPivot.localEulerAngles = euler;
         */
-
-        cameraPivot.Rotate(m_Look.y * Time.deltaTime * CameraSpeed * 2, m_Look.x * Time.deltaTime * CameraSpeed * 2, 0);
+        //-m_Look.y * Time.deltaTime * CameraSpeed * 2
+        cameraPivot.Rotate(0, -m_Look.x * Time.deltaTime * CameraSpeed * 2, 0);
 
         Vector3 euler = cameraPivot.localEulerAngles;
         euler.x =Mathf.Clamp(Mathf.Repeat(cameraPivot.eulerAngles.x + 180, 360),0, 360) - 180;

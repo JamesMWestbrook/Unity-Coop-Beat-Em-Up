@@ -148,9 +148,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncInterval: 0.1
   IsPlayer: 1
-  BetaTesting: 1
+  BetaTesting: 0
   camera: {fileID: 0}
-  IsAttacking: 0
+  IsAttacking: 1
   animator: {fileID: 3644314720288039820}
   networkAnimator: {fileID: 779128529334265901}
   attacks:
