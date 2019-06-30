@@ -231,11 +231,14 @@ MonoBehaviour:
   IsPlayer: 1
   camera: {fileID: 0}
   IsAttacking: 0
+  animator: {fileID: 3644314720288039820}
+  networkAnimator: {fileID: 779128529334265901}
   attacks:
   - {fileID: 7400000, guid: 9f6e82f59c27a21439148c5313823b4d, type: 2}
   - {fileID: 7400000, guid: 16082af6304cf9b4fb9e25823ddd7bf8, type: 2}
   - {fileID: 7400000, guid: f419ea3359436d84a90c0168025e8cce, type: 2}
   MoveSpeed: 5
+  rb: {fileID: 3819869488114760847}
   HP:
     HP: 0
     MaxHP: 50
