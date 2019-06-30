@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7909361650642368470}
-  m_LocalRotation: {x: 0.15800735, y: -0, z: -0, w: 0.98743796}
-  m_LocalPosition: {x: 0, y: 6.9, z: -9.94}
+  m_LocalRotation: {x: 0, y: -0.9948188, z: 0.101664044, w: 0}
+  m_LocalPosition: {x: 0, y: 5.06, z: 10.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7909361651411953870}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 18.183, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 11.67, y: -180, z: 0}
 --- !u!20 &7909361650642368466
 Camera:
   m_ObjectHideFlags: 0
@@ -117,7 +117,7 @@ GameObject:
   m_Layer: 0
   m_Name: CameraPivot
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -129,7 +129,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7909361651411953871}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.899199, y: -15.318041, z: 4.1935005}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7909361650642368465}

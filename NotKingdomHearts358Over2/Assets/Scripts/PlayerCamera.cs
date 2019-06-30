@@ -31,11 +31,7 @@ public class PlayerCamera : MonoBehaviour
         controls.Player.MoveCamera.Enable();
     }
 
-    private Action<InputAction.CallbackContext> MoveCamera()
-    {
-       
-        throw new NotImplementedException();
-    }
+    
 
 
     private Vector2 m_Move;
@@ -53,15 +49,7 @@ public class PlayerCamera : MonoBehaviour
         cameraPivot.position = player.position;
          mouseX = Input.GetAxis("Mouse X");
          mouseY = Input.GetAxis("Mouse Y");
-
-
-        /*
-        cameraPivot.Rotate(-mouseY * Time.deltaTime * CameraSpeed, -mouseX * Time.deltaTime * CameraSpeed, 0);
-        Vector3 euler = cameraPivot.localEulerAngles;
-        euler.x =Mathf.Clamp(Mathf.Repeat(cameraPivot.eulerAngles.x + 180, 360),0, 360) - 180;
-        cameraPivot.localEulerAngles = euler;
-        */
-        //-m_Look.y * Time.deltaTime * CameraSpeed * 2
+        
         cameraPivot.Rotate(0, -m_Look.x * Time.deltaTime * CameraSpeed * 2, 0);
 
         Vector3 euler = cameraPivot.localEulerAngles;

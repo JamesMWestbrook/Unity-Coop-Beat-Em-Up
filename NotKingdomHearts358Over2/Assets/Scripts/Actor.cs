@@ -27,7 +27,7 @@ public class Actor : NetworkBehaviour
         {
             HP = transform.Find("hp").GetComponent<Hp>();
         }
-        
+        IsAttacking = false;
         HP.HP = HP.MaxHP;
     }
 
@@ -62,7 +62,7 @@ public class Actor : NetworkBehaviour
         {
             if (!IsAttacking)
             {
-                Vector3 pos = transform.position;
+                Vector3 pos = rb.position;
 
                 float x = Input.GetAxis("Horizontal");
                 float y = Input.GetAxis("Vertical");
@@ -74,11 +74,11 @@ public class Actor : NetworkBehaviour
                 {
                     target.Normalize();
                 }
-
-                pos += rotation * target * MoveSpeed * Time.deltaTime;
-
-                transform.position = pos;
-                transform.rotation = Quaternion.LookRotation(target);
+                target = rotation * target;
+                pos +=  target * MoveSpeed * Time.deltaTime;
+                
+                rb.MoveRotation(Quaternion.LookRotation(target));
+                rb.MovePosition(pos);
             }
 
         }
