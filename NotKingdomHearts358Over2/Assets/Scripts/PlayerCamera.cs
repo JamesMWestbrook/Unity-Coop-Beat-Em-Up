@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Input;
@@ -19,9 +20,27 @@ public class PlayerCamera : MonoBehaviour
 
     public void OnEnable()
     {
+        
         controls.Player.shoot.performed += _ => Shoot();
         controls.Player.shoot.Enable();
+
+       
+        controls.Player.MoveCamera.performed += ctx => m_Look = ctx.ReadValue<Vector2>();
+        controls.Player.MoveCamera.cancelled += ctx => m_Look = Vector2.zero;
+
+        controls.Player.MoveCamera.Enable();
     }
+
+    private Action<InputAction.CallbackContext> MoveCamera()
+    {
+       
+        throw new NotImplementedException();
+    }
+
+
+    private Vector2 m_Move;
+    private Vector2 m_Look;
+    private Vector2 m_Rotation;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -30,10 +49,15 @@ public class PlayerCamera : MonoBehaviour
          mouseX = Input.GetAxis("Mouse X");
          mouseY = Input.GetAxis("Mouse Y");
 
-        
 
-        //cameraPivot.Rotate(-mouseY * Time.deltaTime * CameraSpeed, -mouseX * Time.deltaTime * CameraSpeed, 0);
+        /*
         cameraPivot.Rotate(-mouseY * Time.deltaTime * CameraSpeed, -mouseX * Time.deltaTime * CameraSpeed, 0);
+        Vector3 euler = cameraPivot.localEulerAngles;
+        euler.x =Mathf.Clamp(Mathf.Repeat(cameraPivot.eulerAngles.x + 180, 360),0, 360) - 180;
+        cameraPivot.localEulerAngles = euler;
+        */
+
+        cameraPivot.Rotate(m_Look.y * Time.deltaTime * CameraSpeed * 2, m_Look.x * Time.deltaTime * CameraSpeed * 2, 0);
 
         Vector3 euler = cameraPivot.localEulerAngles;
         euler.x =Mathf.Clamp(Mathf.Repeat(cameraPivot.eulerAngles.x + 180, 360),0, 360) - 180;

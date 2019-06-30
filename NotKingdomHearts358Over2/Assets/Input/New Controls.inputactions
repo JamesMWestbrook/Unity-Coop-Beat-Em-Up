@@ -24,6 +24,16 @@
                     "processors": "",
                     "interactions": "",
                     "bindings": []
+                },
+                {
+                    "name": "New action",
+                    "id": "e6a196b4-1095-4823-9744-0085729e028a",
+                    "expectedControlLayout": "",
+                    "continuous": false,
+                    "passThrough": false,
+                    "processors": "",
+                    "interactions": "",
+                    "bindings": []
                 }
             ],
             "bindings": [
@@ -41,11 +51,11 @@
                 },
                 {
                     "name": "",
-                    "path": "<Gamepad>/leftStick",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Move Camera",
+                    "groups": ";Keyboard and mouse",
+                    "action": "shoot",
                     "chainWithPrevious": false,
                     "isComposite": false,
                     "isPartOfComposite": false,
@@ -53,11 +63,11 @@
                 },
                 {
                     "name": "",
-                    "path": "<Keyboard>/space",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard and mouse",
-                    "action": "shoot",
+                    "groups": "",
+                    "action": "New action",
                     "chainWithPrevious": false,
                     "isComposite": false,
                     "isPartOfComposite": false,

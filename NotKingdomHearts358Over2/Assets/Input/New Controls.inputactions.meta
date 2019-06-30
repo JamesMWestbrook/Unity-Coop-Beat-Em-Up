@@ -4,6 +4,7 @@ ScriptedImporter:
   fileIDToRecycleName:
     11400000: <root>
     11400002: Player/shoot
+    11400004: Player/New action
     11400006: Player/Move Camera
   externalObjects: {}
   userData: 

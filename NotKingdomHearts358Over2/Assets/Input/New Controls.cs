@@ -22,6 +22,7 @@ public class NewControls : InputActionAssetReference
         m_Player = asset.GetActionMap("Player");
         m_Player_MoveCamera = m_Player.GetAction("Move Camera");
         m_Player_shoot = m_Player.GetAction("shoot");
+        m_Player_Newaction = m_Player.GetAction("New action");
         // New action map1
         m_Newactionmap1 = asset.GetActionMap("New action map1");
         m_Initialized = true;
@@ -31,6 +32,7 @@ public class NewControls : InputActionAssetReference
         m_Player = null;
         m_Player_MoveCamera = null;
         m_Player_shoot = null;
+        m_Player_Newaction = null;
         m_Newactionmap1 = null;
         m_Initialized = false;
     }
@@ -48,12 +50,14 @@ public class NewControls : InputActionAssetReference
     private InputActionMap m_Player;
     private InputAction m_Player_MoveCamera;
     private InputAction m_Player_shoot;
+    private InputAction m_Player_Newaction;
     public struct PlayerActions
     {
         private NewControls m_Wrapper;
         public PlayerActions(NewControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveCamera { get { return m_Wrapper.m_Player_MoveCamera; } }
         public InputAction @shoot { get { return m_Wrapper.m_Player_shoot; } }
+        public InputAction @Newaction { get { return m_Wrapper.m_Player_Newaction; } }
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
