@@ -8,7 +8,8 @@ public class Actor : NetworkBehaviour
 
     public Transform camera;
     public bool IsAttacking = false;
-    private Animator animator;
+    private Animator Animator;
+    private NetworkAnimator nAnimator;
     [SerializeField] private List<AnimationClip> attacks;
 
 
@@ -26,7 +27,8 @@ public class Actor : NetworkBehaviour
         }
         
         HP.HP = HP.MaxHP;
-        animator = GetComponent<Animator>();
+        Animator = GetComponent<Animator>();
+        nAnimator = GetComponent<NetworkAnimator>();
         rb = GetComponent<Rigidbody>();
         camera = Camera.main.transform;
     }
@@ -42,7 +44,8 @@ public class Actor : NetworkBehaviour
 
         if (Input.GetButtonDown("Submit"))
         {
-            animator.SetTrigger("Attack");
+            Animator.SetTrigger("Attack");
+            nAnimator.SetTrigger("Attack");
             IsAttacking = true;
         }
 
@@ -98,12 +101,12 @@ public class Actor : NetworkBehaviour
         GetComponent<Animator>().SetTrigger("Damage");
         HP.HP -= 10;
 
-        HP.HPBar.fillAmount = HP.HP / HP.MaxHP;
+        //HP.HPBar.fillAmount = HP.HP / HP.MaxHP;
     }
 
 
     private bool IsState(string stateName = "Idle")
     {
-        return animator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
+        return Animator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
     }
 }
