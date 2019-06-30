@@ -14,6 +14,7 @@ public class Player_NetworkSetup :NetworkBehaviour
 
         GetComponent<Actor>().camera = playerCamera.transform.GetChild(0);
         playerCamera.GetComponentInChildren<PlayerCamera>().player = transform;
-
+        
     }
+
 }

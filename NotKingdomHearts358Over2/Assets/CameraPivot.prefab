@@ -88,7 +88,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraPivot: {fileID: 7909361651411953870}
   player: {fileID: 0}
-  CameraSpeed: 4
+  CameraSpeed: 10
+  controls:
+    m_Asset: {fileID: 11400000, guid: 90a8ea2baa09fa347ba177f03f093943, type: 3}
 --- !u!1 &7909361651411953871
 GameObject:
   m_ObjectHideFlags: 0
