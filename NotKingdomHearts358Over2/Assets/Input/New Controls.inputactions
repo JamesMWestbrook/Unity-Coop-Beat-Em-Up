@@ -34,6 +34,16 @@
                     "processors": "",
                     "interactions": "",
                     "bindings": []
+                },
+                {
+                    "name": "Attack",
+                    "id": "6927f7f8-69f5-47ef-8f1b-8d36d0c01233",
+                    "expectedControlLayout": "Key",
+                    "continuous": false,
+                    "passThrough": false,
+                    "processors": "",
+                    "interactions": "",
+                    "bindings": []
                 }
             ],
             "bindings": [
@@ -92,6 +102,18 @@
                     "processors": "",
                     "groups": "",
                     "action": "New action",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
                     "chainWithPrevious": false,
                     "isComposite": false,
                     "isPartOfComposite": false,

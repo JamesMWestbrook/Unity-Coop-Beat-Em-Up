@@ -140,7 +140,9 @@ public void Awake()
 
 
 
+[Server]
 
+if(isServer)
 
 
 
