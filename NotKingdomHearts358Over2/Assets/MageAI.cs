@@ -9,10 +9,10 @@ public class MageAI : NetworkBehaviour
     private Rigidbody rb;
 
 
-    private Animator animator;
-    private NetworkAnimator nAnimator;
+    [SerializeField] private Animator animator;
+    [SerializeField] private NetworkAnimator nAnimator;
 
-    public GameObject[] Players;
+   public List<GameObject> Players;
 
     public float closestDistance;
     public GameObject ClosestPlayer;
@@ -22,9 +22,6 @@ public class MageAI : NetworkBehaviour
     {
         actor = GetComponent<Actor>();
         rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
-        nAnimator = GetComponent<NetworkAnimator>();
-        
     }
 
     // Update is called once per frame
@@ -36,7 +33,10 @@ public class MageAI : NetworkBehaviour
     [Server]
     void FixedUpdate()
     {
-        
+        if (Input.GetButton("Submit"))
+        {
+            GetPlayers();
+        }
         if (Inactive)
         {
             WhenInActive();
@@ -91,9 +91,19 @@ public class MageAI : NetworkBehaviour
         }
     }
 
-    void GetPlayers()
+    [Server]
+    public void GetPlayers()
     {
 
+        List<GameObject> players = new List<GameObject>();
+        players.AddRange(GameObject.FindGameObjectsWithTag("Player"));
+        Players.Clear();
+
+        for(int i = 0; i < players.Count; i++)
+        {
+            Players.Add(players[i]);
+        }
+        Debug.Log("Player added");
     }
 
     void GetClosestPlayer()
@@ -107,7 +117,7 @@ public class MageAI : NetworkBehaviour
 
             Debug.Log("Was 0");
         }
-        for(int i = 1; i < Players.Length; i++)
+        for(int i = 1; i < Players.Count; i++)
         {
             float _secondDistance = Vector3.Distance(   Players[i].transform.position, transform.position);
             _secondDistance = TurnPositive(_secondDistance);

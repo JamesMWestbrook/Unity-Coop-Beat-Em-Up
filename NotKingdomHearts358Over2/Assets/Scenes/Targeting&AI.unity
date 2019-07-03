@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657892, g: 0.4964127, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -454,16 +454,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5669046606336870004, guid: 8cec6f4020e54fd499287349ec442e45,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 539588147
-      objectReference: {fileID: 0}
     - target: {fileID: 5669046605695089482, guid: 8cec6f4020e54fd499287349ec442e45,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 00e87a3bbb7ea4c4299d6d4926e310f1, type: 2}
+    - target: {fileID: 5669046606336870004, guid: 8cec6f4020e54fd499287349ec442e45,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 539588147
+      objectReference: {fileID: 0}
     - target: {fileID: 5669046606336870006, guid: 8cec6f4020e54fd499287349ec442e45,
         type: 3}
       propertyPath: m_Constraints
@@ -484,6 +484,16 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.14798081
       objectReference: {fileID: 0}
+    - target: {fileID: 5669046606336870007, guid: 8cec6f4020e54fd499287349ec442e45,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 881476112}
+    - target: {fileID: 5669046606336870007, guid: 8cec6f4020e54fd499287349ec442e45,
+        type: 3}
+      propertyPath: networkAnimator
+      value: 
+      objectReference: {fileID: 881476105}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cec6f4020e54fd499287349ec442e45, type: 3}
 --- !u!1 &881476103 stripped
@@ -505,12 +515,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncInterval: 0.1
+  animator: {fileID: 881476112}
+  nAnimator: {fileID: 881476105}
   Players: []
   closestDistance: 0
   ClosestPlayer: {fileID: 0}
   IsMoving: 0
   Inactive: 0
   IsAttacking: 0
+--- !u!114 &881476105 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5669046606336870008, guid: 8cec6f4020e54fd499287349ec442e45,
+    type: 3}
+  m_PrefabInstance: {fileID: 881476102}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881476103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &881476112 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5669046605695089482, guid: 8cec6f4020e54fd499287349ec442e45,
+    type: 3}
+  m_PrefabInstance: {fileID: 881476102}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1100826872
 GameObject:
   m_ObjectHideFlags: 0

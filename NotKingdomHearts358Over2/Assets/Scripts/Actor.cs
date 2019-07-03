@@ -119,8 +119,16 @@ public class Actor : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
-        Debug.Log("Player added");
         base.OnStartLocalPlayer();
+
+        List<GameObject> _enemies = new List<GameObject>();
+       _enemies.AddRange( GameObject.FindGameObjectsWithTag("enemy"));
+        for(int i = 0; i < _enemies.Count; i++)
+        {
+            _enemies[i].GetComponent<MageAI>().GetPlayers();
+        }
+
+        
     }
 
 }
