@@ -29,6 +29,10 @@ public class PlayerCamera : MonoBehaviour
         controls.Player.MoveCamera.cancelled += ctx => m_Look = Vector2.zero;
 
         controls.Player.MoveCamera.Enable();
+
+
+        //controls.
+
     }
 
     

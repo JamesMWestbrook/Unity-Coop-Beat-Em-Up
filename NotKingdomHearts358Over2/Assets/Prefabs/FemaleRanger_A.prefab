@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 7605696107760470533}
   m_Layer: 0
   m_Name: FemaleRanger_A
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,10 +159,9 @@ MonoBehaviour:
   - {fileID: 7400000, guid: f419ea3359436d84a90c0168025e8cce, type: 2}
   MoveSpeed: 5
   rb: {fileID: 3819869488114760847}
-  HP:
-    HP: 0
-    MaxHP: 50
-    HPBar: {fileID: 0}
+  HP: 50
+  MaxHP: 50
+  enemies: []
 --- !u!114 &1218981643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponCollider: {fileID: 35785695}
+  Particles: []
 --- !u!114 &1243618892
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ ScriptedImporter:
     11400004: Player/New action
     11400006: Player/Move Camera
     11400008: Player/Attack
+    11400012: Player/MoveCameraKeyboard
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -60,7 +60,6 @@ public class Actor : NetworkBehaviour
         }
     }
 
-    
 
     private void FixedUpdate()
     {
@@ -118,5 +117,10 @@ public class Actor : NetworkBehaviour
 
     }
 
+    public override void OnStartLocalPlayer()
+    {
+        Debug.Log("Player added");
+        base.OnStartLocalPlayer();
+    }
 
 }

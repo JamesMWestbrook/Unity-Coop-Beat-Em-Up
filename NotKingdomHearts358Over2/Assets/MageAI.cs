@@ -12,7 +12,7 @@ public class MageAI : NetworkBehaviour
     private Animator animator;
     private NetworkAnimator nAnimator;
 
-    GameObject[] Players;
+    public GameObject[] Players;
 
     public float closestDistance;
     public GameObject ClosestPlayer;
@@ -24,26 +24,28 @@ public class MageAI : NetworkBehaviour
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         nAnimator = GetComponent<NetworkAnimator>();
-
+        
     }
 
     // Update is called once per frame
 
-    public bool IsMoving = false;
-    public bool InActive = false;
-    public bool IsAttacking = false;
+    public bool IsMoving;
+    public bool Inactive = true;
+    public bool IsAttacking;
 
     [Server]
     void FixedUpdate()
     {
-        if (InActive)
+        
+        if (Inactive)
         {
             WhenInActive();
+            GetClosestPlayer();
             return;
         }
         if(closestDistance > 10)
         {
-
+            Debug.Log("Less than 10");
             animator.SetBool("Running", true);
 
             Vector3 pos = rb.position;
@@ -53,6 +55,7 @@ public class MageAI : NetworkBehaviour
 
             rb.MoveRotation(Quaternion.LookRotation(target));
             rb.MovePosition(pos);
+            return;
 
         }
         else
@@ -84,14 +87,19 @@ public class MageAI : NetworkBehaviour
         }
         else //is closer than 50
         {
-            InActive = false;
+            Inactive = false;
         }
+    }
+
+    void GetPlayers()
+    {
+
     }
 
     void GetClosestPlayer()
     {
         
-        if (closestDistance == 0)
+        if (closestDistance == 0f)
         {
             closestDistance = Vector3.Distance(Players[0].transform.position, transform.position);
             closestDistance = TurnPositive(closestDistance);
