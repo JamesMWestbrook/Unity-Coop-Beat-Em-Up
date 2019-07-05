@@ -12,8 +12,7 @@ public class Actor : NetworkBehaviour
     public bool IsAttacking = false;
     [SerializeField] private Animator animator;
     [SerializeField] private NetworkAnimator networkAnimator;
-    [SerializeField] private List<AnimationClip> attacks;
-
+    [SerializeField] private Target goToTarget;
 
     
     public float MoveSpeed = 5f;
@@ -72,8 +71,6 @@ public class Actor : NetworkBehaviour
         {
             if (!IsAttacking)
             {
-                Vector3 pos = rb.position;
-
                 float x = Input.GetAxis("Horizontal");
                 float y = Input.GetAxis("Vertical");
 
@@ -84,13 +81,23 @@ public class Actor : NetworkBehaviour
                 {
                     target.Normalize();
                 }
-                target = rotation * target;
-                pos +=  target * MoveSpeed * Time.deltaTime;
 
-                rb.MoveRotation(Quaternion.LookRotation(target));
-                rb.MovePosition(pos);
+                animator.SetBool("Running", true);
+                
+                target = rotation * target;
+                //pos +=  target * MoveSpeed * Time.deltaTime;
+                //pos += target;
+                goToTarget.GoToTarget(target, MoveSpeed, true);
+
+                //rb.MoveRotation(Quaternion.LookRotation(target));
+                //rb.MovePosition(pos);
+                
             }
 
+        }
+        else
+        {
+            animator.SetBool("Running", false);
         }
 
     }
@@ -102,7 +109,7 @@ public class Actor : NetworkBehaviour
         GetComponent<NetworkAnimator>().SetTrigger("Damage");
         HP -= 10;
         Debug.Log(HP);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         //HP.HPBar.fillAmount = HP.HP / HP.MaxHP;
     }
 

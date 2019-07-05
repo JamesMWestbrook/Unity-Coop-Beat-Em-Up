@@ -653,12 +653,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncInterval: 0.1
   IsPlayer: 0
-  attacks: []
-  Combo: 0
-  HP:
-    HP: 0
-    MaxHP: 50
-    HPBar: {fileID: 1775036041}
+  BetaTesting: 0
+  camera: {fileID: 0}
+  IsAttacking: 0
+  animator: {fileID: 0}
+  networkAnimator: {fileID: 0}
+  goToTarget: {fileID: 0}
+  MoveSpeed: 1
+  rb: {fileID: 0}
+  HP: 50
+  MaxHP: 50
+  enemies: []
 --- !u!114 &46803295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,7 +679,7 @@ MonoBehaviour:
   serverOnly: 0
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 312184246
+  m_SceneId: 1565007539
 --- !u!1 &8554974687092412246
 GameObject:
   m_ObjectHideFlags: 0

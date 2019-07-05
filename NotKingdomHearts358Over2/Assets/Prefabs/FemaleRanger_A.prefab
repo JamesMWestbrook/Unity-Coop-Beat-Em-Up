@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 779128529334265901}
   - component: {fileID: 377131461063738692}
   - component: {fileID: 7605696107760470533}
+  - component: {fileID: 8871531054711982659}
   m_Layer: 12
   m_Name: FemaleRanger_A
   m_TagString: Player
@@ -153,11 +154,8 @@ MonoBehaviour:
   IsAttacking: 1
   animator: {fileID: 3644314720288039820}
   networkAnimator: {fileID: 779128529334265901}
-  attacks:
-  - {fileID: 7400000, guid: 9f6e82f59c27a21439148c5313823b4d, type: 2}
-  - {fileID: 7400000, guid: 16082af6304cf9b4fb9e25823ddd7bf8, type: 2}
-  - {fileID: 7400000, guid: f419ea3359436d84a90c0168025e8cce, type: 2}
-  MoveSpeed: 5
+  goToTarget: {fileID: 8871531054711982659}
+  MoveSpeed: 10
   rb: {fileID: 3819869488114760847}
   HP: 50
   MaxHP: 50
@@ -191,7 +189,7 @@ MonoBehaviour:
   serverOnly: 0
   localPlayerAuthority: 1
   m_AssetId: 
-  m_SceneId: 3394896902
+  m_SceneId: 1917794395
 --- !u!114 &1243618893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +222,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &1838991662540132767
 CapsuleCollider:
@@ -316,6 +314,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controls:
     m_Asset: {fileID: 11400000, guid: 90a8ea2baa09fa347ba177f03f093943, type: 3}
+--- !u!114 &8871531054711982659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3644314720295260138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d223e8f107454b34fa80506a7d5dbe81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3644314720295264542
 GameObject:
   m_ObjectHideFlags: 0

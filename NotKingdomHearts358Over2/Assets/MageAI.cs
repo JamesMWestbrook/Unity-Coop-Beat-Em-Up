@@ -5,13 +5,10 @@ using Mirror;
 
 public class MageAI : NetworkBehaviour
 {
-    private Actor actor;
-    private Rigidbody rb;
+    [SerializeField] private Actor actor;
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private Target goToTarget;
 
-
-
-
-    [SerializeField] private BoxCollider areaCollider;
     [SerializeField] private Animator animator;
     [SerializeField] private NetworkAnimator nAnimator;
 
@@ -26,8 +23,7 @@ public class MageAI : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        actor = GetComponent<Actor>();
-        rb = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
@@ -53,22 +49,17 @@ public class MageAI : NetworkBehaviour
             if (closestDistance > attackingDistance)
             {
                 IsMoving = true;
-                Debug.Log("More than 5 away");
                 animator.SetBool("Running", true);
 
-                
-
-                pos += target * actor.MoveSpeed * Time.deltaTime;
-
+                goToTarget.GoToTarget(target, GetComponent<Actor>().MoveSpeed);
                 transform.LookAt(target);
-              //  rb.MovePosition(pos);
+
                 return;
 
             }
             else
             {
                 IsMoving = false;
-                Debug.Log("Closer");
                 animator.SetBool("Running", false);
                 if (!IsAttacking)
                 {
