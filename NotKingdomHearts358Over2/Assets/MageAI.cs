@@ -9,10 +9,16 @@ public class MageAI : NetworkBehaviour
     private Rigidbody rb;
 
 
+
+
+    [SerializeField] private BoxCollider areaCollider;
     [SerializeField] private Animator animator;
     [SerializeField] private NetworkAnimator nAnimator;
 
-   public List<GameObject> Players;
+
+    public List<GameObject> Players;
+
+    [SerializeField] private float attackingDistance;
 
     public float closestDistance;
     public GameObject ClosestPlayer;
@@ -33,50 +39,61 @@ public class MageAI : NetworkBehaviour
     [Server]
     void FixedUpdate()
     {
-        if (Input.GetButton("Submit"))
+        if (Players.Count >= 1)
         {
-            GetPlayers();
-        }
-        if (Inactive)
-        {
-            WhenInActive();
+            if (Inactive)
+            {
+                WhenInActive();
+                
+                return;
+            }
             GetClosestPlayer();
-            return;
-        }
-        if(closestDistance > 10)
-        {
-            Debug.Log("Less than 10");
-            animator.SetBool("Running", true);
-
             Vector3 pos = rb.position;
             Vector3 target = ClosestPlayer.GetComponent<Rigidbody>().position;
-
-            pos += target * actor.MoveSpeed * Time.deltaTime;
-
-            rb.MoveRotation(Quaternion.LookRotation(target));
-            rb.MovePosition(pos);
-            return;
-
-        }
-        else
-        {
-            if (!IsAttacking)
+            if (closestDistance > attackingDistance)
             {
-                int i = Random.Range(0, 10);
-                if (i < 10)
-                {
-                    animator.SetTrigger("Attack");
-                    nAnimator.SetTrigger("Attack");
-                }
-                else
-                {
-                    //idle
-                }
+                IsMoving = true;
+                Debug.Log("More than 5 away");
+                animator.SetBool("Running", true);
+
+                
+
+                pos += target * actor.MoveSpeed * Time.deltaTime;
+
+                transform.LookAt(target);
+              //  rb.MovePosition(pos);
+                return;
+
             }
-            
+            else
+            {
+                IsMoving = false;
+                Debug.Log("Closer");
+                animator.SetBool("Running", false);
+                if (!IsAttacking)
+                {
+                    
+                    int i = Random.Range(0, 20);
+                        transform.LookAt(target);
+
+                    //int i = 11;
+                    if (i < 10)
+                    {
+                        animator.SetTrigger("Attack");
+                        nAnimator.SetTrigger("Attack");
+                        IsAttacking = true;
+                    }
+                    else
+                    {
+                        //idle
+                    }
+                }
 
 
+
+            }
         }
+        
     }
 
     void WhenInActive()
@@ -90,34 +107,22 @@ public class MageAI : NetworkBehaviour
             Inactive = false;
         }
     }
-
-    [Server]
-    public void GetPlayers()
-    {
-
-        List<GameObject> players = new List<GameObject>();
-        players.AddRange(GameObject.FindGameObjectsWithTag("Player"));
-        Players.Clear();
-
-        for(int i = 0; i < players.Count; i++)
-        {
-            Players.Add(players[i]);
-        }
-        Debug.Log("Player added");
-    }
+    
 
     void GetClosestPlayer()
     {
         
         if (closestDistance == 0f)
         {
+            Debug.Log("Was 0");
+        }
+        if (Players[0] != null)
+        {
             closestDistance = Vector3.Distance(Players[0].transform.position, transform.position);
             closestDistance = TurnPositive(closestDistance);
             ClosestPlayer = Players[0];
-
-            Debug.Log("Was 0");
         }
-        for(int i = 1; i < Players.Count; i++)
+        for (int i = 1; i < Players.Count; i++)
         {
             float _secondDistance = Vector3.Distance(   Players[i].transform.position, transform.position);
             _secondDistance = TurnPositive(_secondDistance);

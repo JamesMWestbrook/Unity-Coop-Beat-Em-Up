@@ -41,6 +41,7 @@ public class Actor : NetworkBehaviour
         
         GameObject canvasCam = GameObject.Find("Image");
         canvasCam.GetComponent<targetController>().cam = camera.GetComponent<Camera>();
+        
     }
 
     // Update is called once per frame
@@ -85,7 +86,7 @@ public class Actor : NetworkBehaviour
                 }
                 target = rotation * target;
                 pos +=  target * MoveSpeed * Time.deltaTime;
-                
+
                 rb.MoveRotation(Quaternion.LookRotation(target));
                 rb.MovePosition(pos);
             }
@@ -121,13 +122,13 @@ public class Actor : NetworkBehaviour
     {
         base.OnStartLocalPlayer();
 
+        
         List<GameObject> _enemies = new List<GameObject>();
        _enemies.AddRange( GameObject.FindGameObjectsWithTag("enemy"));
-        for(int i = 0; i < _enemies.Count; i++)
-        {
-            _enemies[i].GetComponent<MageAI>().GetPlayers();
+        for(int i = 0; i < _enemies.Count; i++) {
+            //_enemies[i].GetComponent<MageAI>().PlayerIDs.Add(netId);
         }
-
+        
         
     }
 

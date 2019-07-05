@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 35785697}
   - component: {fileID: 35785696}
   - component: {fileID: 35785695}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SwordCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 779128529334265901}
   - component: {fileID: 377131461063738692}
   - component: {fileID: 7605696107760470533}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FemaleRanger_A
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -190,8 +190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serverOnly: 0
   localPlayerAuthority: 1
-  m_AssetId: 0311e72aae60c1e4b8a946a9b17a9c9a
-  m_SceneId: 0
+  m_AssetId: 
+  m_SceneId: 3394896902
 --- !u!114 &1243618893
 MonoBehaviour:
   m_ObjectHideFlags: 0
