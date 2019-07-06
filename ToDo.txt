@@ -4,7 +4,7 @@ Implement player camera. Will follow player without being a child, and moves bas
 
 Locking On to an enemy
 Implement abilities
-Implement HP Bar
+Implement HP & MP 11111Bar
 Implement other characters
 Spawn individual characters as player
 Character Selection Screen

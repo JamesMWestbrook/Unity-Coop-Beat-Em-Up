@@ -1,6 +1,16 @@
 ~Getting hit 
 ~Attack 
 
+~Getting hit
+~Attacking
+~Finishing a combo, like attacking but more intense
+
+Begone!
+Tck.
+Move!
+
+
+
 I gotcha!
 I can do this!
 Be afraid!
