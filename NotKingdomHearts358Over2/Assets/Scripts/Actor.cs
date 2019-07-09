@@ -39,7 +39,7 @@ public class Actor : NetworkBehaviour
         }
         
         GameObject canvasCam = GameObject.Find("Image");
-        canvasCam.GetComponent<targetController>().cam = camera.GetComponent<Camera>();
+        canvasCam.GetComponent<targetController>().Cam = camera.GetComponent<Camera>();
         
     }
 

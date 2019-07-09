@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;//Be Sure To Include This
+using UnityEngine.Experimental.Input;
 
 public class targetController : MonoBehaviour
 {
+    [SerializeField] private NewControls controls;
 
-    public Camera cam; //Main Camera
-    enemyInView target; //Current Focused Enemy In List
-    Image image;//Image Of Crosshair
+    public Camera Cam; //Main Camera
+    private enemyInView target; //Current Focused Enemy In List
+    private Image image;//Image Of Crosshair
 
     bool lockedOn;//Keeps Track Of Lock On Status    
 
@@ -27,10 +29,54 @@ public class targetController : MonoBehaviour
         lockedEnemy = 0;
     }
 
+    private void OnEnable()
+    {
+
+        controls.Player.LockOn.performed += _ => LockOn();
+        controls.Player.LockOn.Enable();
+
+        controls.Player.SwitchLockOn.performed += _ => SwitchLockOn();
+        controls.Player.SwitchLockOn.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Player.LockOn.performed -= _ => LockOn();
+        controls.Player.LockOn.Disable();
+
+        controls.Player.SwitchLockOn.performed -= _ => SwitchLockOn();
+        controls.Player.SwitchLockOn.Disable();
+    }
+
+
     void Update()
     {
-        //Press Space Key To Lock On
-        if (Input.GetKeyDown(KeyCode.Space) && !lockedOn)
+        
+        
+
+        //Press X To Switch Targets
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            
+        }
+
+        if (lockedOn)
+        {
+            target = nearByEnemies[lockedEnemy];
+
+            //Determine Crosshair Location Based On The Current Target
+            gameObject.transform.position = Cam.WorldToScreenPoint(target.transform.position);
+
+            //Rotate Crosshair
+            gameObject.transform.Rotate(new Vector3(0, 0, -1));
+        }
+    }
+
+
+    //Press Left Ctr to lock on
+    void LockOn()
+    {
+        if (!lockedOn)
         {
             if (nearByEnemies.Count >= 1)
             {
@@ -43,7 +89,7 @@ public class targetController : MonoBehaviour
             }
         }
         //Turn Off Lock On When Space Is Pressed Or No More Enemies Are In The List
-        else if ((Input.GetKeyDown(KeyCode.Space) && lockedOn) || nearByEnemies.Count == 0)
+        else if (lockedOn || nearByEnemies.Count == 0)
         {
             lockedOn = false;
             image.enabled = false;
@@ -51,32 +97,24 @@ public class targetController : MonoBehaviour
             target = null;
         }
 
-        //Press X To Switch Targets
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            if (lockedEnemy == nearByEnemies.Count - 1)
-            {
-                //If End Of List Has Been Reached, Start Over
-                lockedEnemy = 0;
-                target = nearByEnemies[lockedEnemy];
-            }
-            else
-            {
-                //Move To Next Enemy In List
-                lockedEnemy++;
-                target = nearByEnemies[lockedEnemy];
-            }
-        }
+        Debug.Log("Lock on button working");
+    }
 
-        if (lockedOn)
+    void SwitchLockOn()
+    {
+
+        if (lockedEnemy == nearByEnemies.Count - 1)
         {
+            //If End Of List Has Been Reached, Start Over
+            lockedEnemy = 0;
             target = nearByEnemies[lockedEnemy];
-
-            //Determine Crosshair Location Based On The Current Target
-            gameObject.transform.position = cam.WorldToScreenPoint(target.transform.position);
-
-            //Rotate Crosshair
-            gameObject.transform.Rotate(new Vector3(0, 0, -1));
         }
+        else
+        {
+            //Move To Next Enemy In List
+            lockedEnemy++;
+            target = nearByEnemies[lockedEnemy];
+        }
+        Debug.Log("Switching lock on working");
     }
 }

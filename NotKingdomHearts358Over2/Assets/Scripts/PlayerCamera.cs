@@ -18,22 +18,7 @@ public class PlayerCamera : MonoBehaviour
     {
     }
 
-    public void OnEnable()
-    {
-        
-        controls.Player.shoot.performed += _ => Shoot();
-        controls.Player.shoot.Enable();
-
-       
-        controls.Player.MoveCamera.performed += ctx => m_Look = ctx.ReadValue<Vector2>();
-        controls.Player.MoveCamera.cancelled += ctx => m_Look = Vector2.zero;
-
-        controls.Player.MoveCamera.Enable();
-
-
-        //controls.
-
-    }
+    
 
     
 
@@ -66,11 +51,21 @@ public class PlayerCamera : MonoBehaviour
         Debug.Log("Space works");
     }
 
-    
 
+
+    //controls
+    public void OnEnable()
+    {
+
+        controls.Player.MoveCamera.performed += ctx => m_Look = ctx.ReadValue<Vector2>();
+        controls.Player.MoveCamera.cancelled += ctx => m_Look = Vector2.zero;
+        controls.Player.MoveCamera.Enable();
+    }
     private void OnDisable()
     {
-        
+        controls.Player.MoveCamera.performed -= ctx => m_Look = ctx.ReadValue<Vector2>();
+        controls.Player.MoveCamera.cancelled -= ctx => m_Look = Vector2.zero;
+        controls.Player.MoveCamera.Disable();
     }
 
 }

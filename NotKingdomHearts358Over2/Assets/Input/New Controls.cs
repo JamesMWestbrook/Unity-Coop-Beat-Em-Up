@@ -25,6 +25,8 @@ public class NewControls : InputActionAssetReference
         m_Player_Newaction = m_Player.GetAction("New action");
         m_Player_Attack = m_Player.GetAction("Attack");
         m_Player_MoveCameraKeyboard = m_Player.GetAction("MoveCameraKeyboard");
+        m_Player_SwitchLockOn = m_Player.GetAction("SwitchLockOn");
+        m_Player_LockOn = m_Player.GetAction("LockOn");
         // New action map1
         m_Newactionmap1 = asset.GetActionMap("New action map1");
         m_Initialized = true;
@@ -37,6 +39,8 @@ public class NewControls : InputActionAssetReference
         m_Player_Newaction = null;
         m_Player_Attack = null;
         m_Player_MoveCameraKeyboard = null;
+        m_Player_SwitchLockOn = null;
+        m_Player_LockOn = null;
         m_Newactionmap1 = null;
         m_Initialized = false;
     }
@@ -57,6 +61,8 @@ public class NewControls : InputActionAssetReference
     private InputAction m_Player_Newaction;
     private InputAction m_Player_Attack;
     private InputAction m_Player_MoveCameraKeyboard;
+    private InputAction m_Player_SwitchLockOn;
+    private InputAction m_Player_LockOn;
     public struct PlayerActions
     {
         private NewControls m_Wrapper;
@@ -66,6 +72,8 @@ public class NewControls : InputActionAssetReference
         public InputAction @Newaction { get { return m_Wrapper.m_Player_Newaction; } }
         public InputAction @Attack { get { return m_Wrapper.m_Player_Attack; } }
         public InputAction @MoveCameraKeyboard { get { return m_Wrapper.m_Player_MoveCameraKeyboard; } }
+        public InputAction @SwitchLockOn { get { return m_Wrapper.m_Player_SwitchLockOn; } }
+        public InputAction @LockOn { get { return m_Wrapper.m_Player_LockOn; } }
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
