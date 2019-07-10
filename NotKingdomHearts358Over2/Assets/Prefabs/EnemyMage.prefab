@@ -525,7 +525,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &5669046606336870002
 BoxCollider:
@@ -569,8 +569,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serverOnly: 0
   localPlayerAuthority: 0
-  m_AssetId: 8cec6f4020e54fd499287349ec442e45
-  m_SceneId: 0
+  m_AssetId: 
+  m_SceneId: 1463365666
 --- !u!114 &5669046606336870005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -604,8 +604,8 @@ MonoBehaviour:
   IsAttacking: 0
   animator: {fileID: 5669046605695089482}
   networkAnimator: {fileID: 5669046606336870008}
-  attacks: []
-  MoveSpeed: 5
+  goToTarget: {fileID: 0}
+  MoveSpeed: 0.75
   rb: {fileID: 0}
   HP: 50
   MaxHP: 50
@@ -625,7 +625,7 @@ MonoBehaviour:
   syncInterval: 0.1
   actor: {fileID: 5669046606336870007}
   rb: {fileID: 5669046606336870006}
-  goToTarget: {fileID: 0}
+  goToTarget: {fileID: 2026138857}
   animator: {fileID: 5669046605695089482}
   nAnimator: {fileID: 5669046606336870008}
   Players: []

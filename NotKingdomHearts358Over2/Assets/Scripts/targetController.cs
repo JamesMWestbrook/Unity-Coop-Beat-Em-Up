@@ -62,13 +62,18 @@ public class targetController : MonoBehaviour
 
         if (lockedOn)
         {
-            target = nearByEnemies[lockedEnemy];
+            if(nearByEnemies.Count >= 1)
+            {
 
-            //Determine Crosshair Location Based On The Current Target
-            gameObject.transform.position = Cam.WorldToScreenPoint(target.transform.position);
+                target = nearByEnemies[lockedEnemy];
 
-            //Rotate Crosshair
-            gameObject.transform.Rotate(new Vector3(0, 0, -1));
+                //Determine Crosshair Location Based On The Current Target
+                gameObject.transform.position = Cam.WorldToScreenPoint(target.transform.position);
+
+                //Rotate Crosshair
+                gameObject.transform.Rotate(new Vector3(0, 0, -1));
+            }
+
         }
     }
 
@@ -97,7 +102,6 @@ public class targetController : MonoBehaviour
             target = null;
         }
 
-        Debug.Log("Lock on button working");
     }
 
     void SwitchLockOn()

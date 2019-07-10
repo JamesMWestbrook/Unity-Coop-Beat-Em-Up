@@ -14,7 +14,9 @@ public class Actor : NetworkBehaviour
     [SerializeField] private NetworkAnimator networkAnimator;
     [SerializeField] private Target goToTarget;
 
-    
+    private SFXManager SFXM;
+    [SerializeField] private SFXGroup onHit;
+
     public float MoveSpeed = 5f;
     [SerializeField] private Rigidbody rb;
 
@@ -102,6 +104,7 @@ public class Actor : NetworkBehaviour
 
     }
 
+    [Server]
     public void OnHit(Actor attacker)
     {
 
@@ -111,6 +114,10 @@ public class Actor : NetworkBehaviour
         Debug.Log(HP);
         //gameObject.SetActive(false);
         //HP.HPBar.fillAmount = HP.HP / HP.MaxHP;
+        if (onHit)
+        {
+            SFXManager.Main.Play(onHit);
+        }
     }
 
 

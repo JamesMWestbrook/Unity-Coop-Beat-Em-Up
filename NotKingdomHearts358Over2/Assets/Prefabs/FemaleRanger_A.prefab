@@ -155,6 +155,7 @@ MonoBehaviour:
   animator: {fileID: 3644314720288039820}
   networkAnimator: {fileID: 779128529334265901}
   goToTarget: {fileID: 8871531054711982659}
+  onHit: {fileID: 11400000, guid: 9cb88e402cca74f4caed647d12e6e9eb, type: 2}
   MoveSpeed: 10
   rb: {fileID: 3819869488114760847}
   HP: 50
@@ -189,7 +190,7 @@ MonoBehaviour:
   serverOnly: 0
   localPlayerAuthority: 1
   m_AssetId: 
-  m_SceneId: 1917794395
+  m_SceneId: 823802922
 --- !u!114 &1243618893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,12 +203,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583f152ad8d61a34f9fbdcbc06187953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackLines: {fileID: 11400000, guid: 31ead846f19cea24ba59f621337d7d8b, type: 2}
-  AttackFinishLines: {fileID: 11400000, guid: 716e3d165eaddc14bb0c8ef3d8783362, type: 2}
-  AttackQuotes: {fileID: 11400000, guid: dbea62e2381c6734ea86b76d7023fef6, type: 2}
-  DamageLines:
-  - {fileID: 0}
-  - {fileID: 0}
+  syncInterval: 0.1
+  AttackLines: {fileID: 11400000, guid: 04d2df3cde0cd5644981acaf932d83b0, type: 2}
+  AttackFinishLines: {fileID: 11400000, guid: 2b82abb0e5976b64ab2dd4c72ebd4f3a, type: 2}
+  AttackQuotes: {fileID: 11400000, guid: fbac692aaa8e46f4f87af572338c2888, type: 2}
+  DamageLines: {fileID: 11400000, guid: 9cb88e402cca74f4caed647d12e6e9eb, type: 2}
 --- !u!54 &3819869488114760847
 Rigidbody:
   m_ObjectHideFlags: 0

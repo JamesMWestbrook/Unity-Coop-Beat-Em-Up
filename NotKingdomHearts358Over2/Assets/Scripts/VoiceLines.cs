@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class VoiceLines : MonoBehaviour
+public class VoiceLines : NetworkBehaviour
 {
 
     private SFXManager SFXM;
@@ -9,7 +10,7 @@ public class VoiceLines : MonoBehaviour
     public SFXGroup AttackLines;
     public SFXGroup AttackFinishLines;
     public SFXGroup AttackQuotes;
-    public List<SFXObject> DamageLines;
+    public SFXGroup DamageLines;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,17 +22,32 @@ public class VoiceLines : MonoBehaviour
         
     }
 
+    [Server]
     public void Attack()
     {
         SFXManager.Main.Play(AttackLines);
     }
+
+    [Server]
     public void Finisher()
     {
-        SFXManager.Main.Play(AttackFinishLines);
+
+        int rand = Random.RandomRange(0, 1);
+        if(rand == 0){
+            SFXManager.Main.Play(AttackFinishLines);
+
+        }
+        else
+        {
+            Quote();
+        }
+
     }
+
+    [Server]
     public void Quote()
     {
-        SFXManager.Main.Play(AttackQuotes);
     }
+
 
 }

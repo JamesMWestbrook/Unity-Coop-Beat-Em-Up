@@ -7,6 +7,7 @@ public class HitDetection : MonoBehaviour
 
     [SerializeField] private BoxCollider WeaponCollider;
     [SerializeField] private List<ParticleSystem> Particles;
+    private SFXManager SFXM;
 
     public void Hit()
     {
@@ -39,9 +40,10 @@ public class HitDetection : MonoBehaviour
             transform.root.GetComponent<VoiceLines>().Attack();
         }
     }
+    
     public void Quote()
     {
-        transform.root.GetComponent<VoiceLines>().Quote();
+        SFXManager.Main.Play(transform.root.GetComponent<VoiceLines>().AttackQuotes);
     }
     
 
